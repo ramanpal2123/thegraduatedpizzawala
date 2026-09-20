@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+  background-color: #faf7f5;
+  color: #222;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-family: inherit;
+  transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+input, textarea {
+  font-family: inherit;
+}
+
+input:focus, textarea:focus {
+  border-color: #d32f2f !important;
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 4px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ---------- Responsive Layout ---------- */
+
+.page-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* Tablet aur upar */
+@media (min-width: 768px) {
+  .page-wrapper {
+    max-width: 900px;
+  }
+
+  .items-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .header-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+
+/* Laptop/Desktop */
+@media (min-width: 1200px) {
+  .page-wrapper {
+    max-width: 1100px;
+  }
+
+  .items-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .header-content {
+    max-width: 1100px;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .admin-sidebar-desktop {
+    display: none !important;
+  }
+  .admin-mobile-header {
+    display: flex !important;
+  }
+  .admin-content-area {
+    margin-left: 0 !important;
+    margin-top: 56px !important;
+    padding: 0 !important;
+  }
+}
+
+
+html[data-theme='dark'] {
+  filter: invert(1) hue-rotate(180deg);
+  background: #fff;
+}
+
+html[data-theme='dark'] img,
+html[data-theme='dark'] video {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html {
+  transition: filter 0.2s ease;
+}
